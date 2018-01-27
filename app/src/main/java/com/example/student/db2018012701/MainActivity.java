@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -151,7 +152,14 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View dialogv = inflater.inflate(R.layout.mydialog, null);
-
+        Button btn6 = dialogv.findViewById(R.id.button6);
+        final TextView tv4 = dialogv.findViewById(R.id.textView4);
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv4.setText("Hello");
+            }
+        });
         builder.setView(dialogv);
 
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
