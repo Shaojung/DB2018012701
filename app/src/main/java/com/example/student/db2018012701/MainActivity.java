@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void click3(View v)
     {
-        String data[] = {"蘋果", "香蕉", "柳丁", "鳳梨"};
+        final String data[] = {"蘋果", "香蕉", "柳丁", "鳳梨"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("選擇");
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setItems(data, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Toast.makeText(MainActivity.this, data[which], Toast.LENGTH_SHORT).show();
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
