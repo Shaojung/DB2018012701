@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView tv, tv2;
-    int ch1;
+    int ch1, tmp1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("單選");
-        builder.setSingleChoiceItems(data, -1, new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(data, ch1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ch1 = which;
@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(MainActivity.this, "按下確定:" + ch1, Toast.LENGTH_SHORT).show();
+                tv2.setText(data[ch1]);
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
