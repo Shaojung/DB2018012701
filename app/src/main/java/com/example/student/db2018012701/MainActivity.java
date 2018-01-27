@@ -86,15 +86,17 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("單選");
-        builder.setSingleChoiceItems(data, ch1, new DialogInterface.OnClickListener() {
+        tmp1 = ch1;
+        builder.setSingleChoiceItems(data, tmp1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                ch1 = which;
+                tmp1 = which;
             }
         });
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                ch1 = tmp1;
                 Toast.makeText(MainActivity.this, "按下確定:" + ch1, Toast.LENGTH_SHORT).show();
                 tv2.setText(data[ch1]);
             }
