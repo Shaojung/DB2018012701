@@ -117,11 +117,17 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("多選");
-        final StringBuilder sb = new StringBuilder();
         builder.setMultiChoiceItems(data, chks, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
+
+            }
+        });
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                StringBuilder sb = new StringBuilder();
                 for (int i=0;i<=3;i++)
                 {
                     if (chks[i])
@@ -129,11 +135,6 @@ public class MainActivity extends AppCompatActivity {
                         sb.append(data[i]);
                     }
                 }
-            }
-        });
-        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
                 tv3.setText(sb.toString());
             }
         });
