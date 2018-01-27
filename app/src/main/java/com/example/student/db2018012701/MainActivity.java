@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv, tv2;
+    TextView tv, tv2, tv3;
     int ch1, tmp1;
     boolean chks[] = new boolean[4];
     @Override
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tv = (TextView) findViewById(R.id.textView);
         tv2 = (TextView) findViewById(R.id.textView2);
+        tv3 = (TextView) findViewById(R.id.textView3);
     }
     public void click1(View v)
     {
@@ -115,18 +116,25 @@ public class MainActivity extends AppCompatActivity {
         final String data[] = {"蘋果", "香蕉", "柳丁", "鳳梨"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("單選");
-
+        builder.setTitle("多選");
+        final StringBuilder sb = new StringBuilder();
         builder.setMultiChoiceItems(data, chks, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
+                for (int i=0;i<=3;i++)
+                {
+                    if (chks[i])
+                    {
+                        sb.append(data[i]);
+                    }
+                }
             }
         });
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                tv3.setText(sb.toString());
             }
         });
 
