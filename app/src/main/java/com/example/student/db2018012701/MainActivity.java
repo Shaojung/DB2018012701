@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv, tv2, tv3;
     int ch1, tmp1;
     boolean chks[] = new boolean[4];
+    boolean tmp2[] = new boolean[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,10 +115,12 @@ public class MainActivity extends AppCompatActivity {
     public void click5(View v)
     {
         final String data[] = {"蘋果", "香蕉", "柳丁", "鳳梨"};
-
+        tmp2 = chks.clone();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("多選");
-        builder.setMultiChoiceItems(data, chks, new DialogInterface.OnMultiChoiceClickListener() {
+
+
+        builder.setMultiChoiceItems(data, tmp2, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                chks = tmp2.clone();
                 StringBuilder sb = new StringBuilder();
                 for (int i=0;i<=3;i++)
                 {
