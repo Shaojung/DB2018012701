@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     TextView tv, tv2;
     int ch1, tmp1;
+    boolean chks[] = new boolean[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +108,28 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "按下取消:" + ch1, Toast.LENGTH_SHORT).show();
             }
         });
+        builder.show();
+    }
+    public void click5(View v)
+    {
+        final String data[] = {"蘋果", "香蕉", "柳丁", "鳳梨"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("單選");
+
+        builder.setMultiChoiceItems(data, chks, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+            }
+        });
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
         builder.show();
     }
 }
