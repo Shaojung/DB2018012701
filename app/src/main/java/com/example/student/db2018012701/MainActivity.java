@@ -10,12 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    TextView tv;
+    TextView tv, tv2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tv = (TextView) findViewById(R.id.textView);
+        tv2 = (TextView) findViewById(R.id.textView2);
     }
     public void click1(View v)
     {
@@ -77,6 +78,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+    public void click4(View v)
+    {
+        final String data[] = {"蘋果", "香蕉", "柳丁", "鳳梨"};
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("單選");
+        builder.setSingleChoiceItems(data, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
     }
 }
